@@ -45,6 +45,11 @@ section{margin:0 0 34px;scroll-margin-top:16px}
 p{margin:.55em 0}
 p.cl{margin:.55em 0 .55em .2em}
 p.item{margin:.3em 0 .3em 1.1em;color:#414750}
+/* 본문 양쪽 정렬 — 제목·표머리·목차는 제외 */
+main p,.box p,table td{text-align:justify;text-justify:inter-word}
+html[data-lang="en"] main p,html[data-lang="en"] .box p,html[data-lang="en"] table td{
+hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto}
+.cover .meta,nav.toc a{text-align:left}
 a{color:var(--blue)}
 a:hover{text-decoration:none}
 .box{border-radius:6px;padding:15px 17px;margin:16px 0;font-size:.94rem}
@@ -79,6 +84,9 @@ html:not(.js) .langbar{display:none}
 html.js[data-lang="ko"] #doc-en,html.js[data-lang="en"] #doc-ko{display:none}
 @media(max-width:520px){
   body{font-size:15px}
+  /* 폭이 좁으면 양쪽 정렬이 어절 사이를 과하게 벌린다 — 국문만 해제 */
+  html[data-lang="ko"] main p,html[data-lang="ko"] .box p,
+  html[data-lang="ko"] table td{text-align:left}
   .cover{padding:30px 18px 24px}.cover h1{font-size:1.35rem}
   main{padding:20px 16px 34px}
   table.kv th,table.kv td{display:block;width:100%;border:0}
