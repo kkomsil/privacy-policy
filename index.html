@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>개인정보 처리방침 | Pixel Air</title>
-<meta name="description" content="Pixel Air(픽셀에어) 개인정보 처리방침 — 개인정보보호법 제30조에 따라 공개합니다.">
+<title>개인정보 처리방침 | Privacy Policy — Pixel Air</title>
+<meta name="description" content="Pixel Air(픽셀에어) 개인정보 처리방침 — 개인정보보호법 제30조에 따라 공개합니다. Privacy Policy of Pixel Air.">
 <meta name="robots" content="index,follow">
-<meta property="og:title" content="개인정보 처리방침 | Pixel Air">
-<meta property="og:description" content="Pixel Air 개인정보 처리방침">
+<meta property="og:title" content="개인정보 처리방침 | Privacy Policy — Pixel Air">
+<meta property="og:description" content="Pixel Air 개인정보 처리방침 / Privacy Policy">
 <meta property="og:type" content="website">
 <style>
 :root{--navy:#1F3864;--blue:#2E5FAC;--pale:#D6E4F7;--line:#DDE3EC;
@@ -17,9 +17,22 @@ html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--soft);color:var(--ink);line-height:1.75;
 font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",
 "맑은 고딕","Noto Sans KR",sans-serif;font-size:16px;word-break:keep-all;overflow-wrap:anywhere}
-.wrap{max-width:760px;margin:0 auto;background:var(--bg);
-box-shadow:0 0 0 1px var(--line);}
-@media(min-width:800px){.wrap{margin:32px auto;border-radius:10px;overflow:hidden}}
+html[data-lang="en"] body{word-break:normal}
+.shell{max-width:760px;margin:0 auto;padding:0}
+@media(min-width:800px){.shell{padding:22px 0 32px}}
+.langbar{display:flex;justify-content:flex-end;padding:12px 16px 10px}
+@media(min-width:800px){.langbar{padding:0 0 12px}}
+.pill{display:inline-flex;align-items:center;gap:2px;background:var(--bg);
+border:1px solid var(--line);border-radius:999px;padding:4px;
+box-shadow:0 1px 2px rgba(16,24,40,.05)}
+.pill button{font:inherit;font-size:.86rem;line-height:1;cursor:pointer;
+border:0;background:none;color:var(--dim);padding:7px 13px;border-radius:999px;
+font-family:inherit;transition:background .12s,color .12s}
+.pill button:hover{color:var(--navy)}
+.pill button[aria-current="true"]{background:var(--pale);color:var(--navy);font-weight:600}
+.pill button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.wrap{background:var(--bg);box-shadow:0 0 0 1px var(--line)}
+@media(min-width:800px){.wrap{border-radius:10px;overflow:hidden}}
 .cover{background:var(--navy);color:#fff;padding:38px 24px 30px}
 .cover h1{margin:0;font-size:1.6rem;letter-spacing:-.02em;line-height:1.35}
 .cover .meta{margin:10px 0 0;color:#B9CDE8;font-size:.9rem;line-height:1.6}
@@ -44,7 +57,9 @@ a:hover{text-decoration:none}
 table{width:100%;border-collapse:collapse;font-size:.92rem}
 th,td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
 table.kv th{background:var(--soft);color:#1F2937;font-weight:600;width:31%;white-space:nowrap}
+html[data-lang="en"] table.kv th{white-space:normal;width:29%}
 table.data thead th{background:var(--navy);color:#fff;font-weight:600;white-space:nowrap}
+html[data-lang="en"] table.data thead th{white-space:normal}
 table.data tbody td:first-child{background:var(--soft);font-weight:600}
 nav.toc{background:var(--soft);border:1px solid var(--line);border-radius:7px;
 padding:16px 18px;margin:0 0 30px}
@@ -56,6 +71,12 @@ nav.toc a{text-decoration:none;color:#374151}
 nav.toc a:hover{color:var(--blue);text-decoration:underline}
 footer{padding:20px 22px 34px;color:var(--dim);font-size:.82rem;text-align:center;
 border-top:1px solid var(--line);background:var(--soft)}
+.sep{margin:0;border:0;border-top:4px double var(--line)}
+html.js .sep{display:none}
+html.js .langbar{visibility:visible}
+.langbar{visibility:hidden}
+html:not(.js) .langbar{display:none}
+html.js[data-lang="ko"] #doc-en,html.js[data-lang="en"] #doc-ko{display:none}
 @media(max-width:520px){
   body{font-size:15px}
   .cover{padding:30px 18px 24px}.cover h1{font-size:1.35rem}
@@ -70,16 +91,38 @@ border-top:1px solid var(--line);background:var(--soft)}
 }
 @media print{
   body{background:#fff;font-size:10.5pt}
-  .wrap{box-shadow:none;margin:0;max-width:none}
-  nav.toc{display:none}
+  .shell{padding:0;max-width:none}
+  .wrap{box-shadow:none;border-radius:0}
+  .langbar,nav.toc{display:none}
   section{break-inside:auto;page-break-inside:auto}
   h2{break-after:avoid;page-break-after:avoid}
   .tw{overflow:visible}
 }
 </style>
+<script>
+(function(){var d=document.documentElement;
+d.className='js';
+d.setAttribute('data-lang',(function(){
+  var h=(location.hash||'').toLowerCase();
+  if(h.indexOf('#en-')===0||h==='#en')return 'en';
+  if(h.indexOf('#art')===0||h==='#ko')return 'ko';
+  return (navigator.language||'').toLowerCase().indexOf('ko')===0?'ko':'en';
+})());})();
+</script>
 </head>
 <body>
+<div class="shell">
+
+<div class="langbar">
+  <div class="pill" id="langbar" role="group" aria-label="언어 선택 / Language">
+    <button type="button" data-l="ko" aria-current="true" lang="ko">한국어</button>
+    <button type="button" data-l="en" aria-current="false" lang="en">EN</button>
+  </div>
+</div>
+
 <div class="wrap">
+
+<div id="doc-ko" class="lang">
 <header class="cover"><h1>개인정보 처리방침</h1><p class="meta">[ 꼼실포토 ]  |  서비스명: Pixel Air (픽셀에어)</p><p class="meta">공고일: 2026년 8월 5일  |  시행일: 2026년 8월 12일  |  버전: v1.1</p></header>
 <main>
 <div class="box intro"><p>[ 꼼실포토 ](이하 "회사")는 개인정보보호법 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보 처리방침을 수립·공개합니다.</p></div>
@@ -304,5 +347,267 @@ border-top:1px solid var(--line);background:var(--soft)}
 <footer>본 처리방침은 개인정보보호법 제30조에 따라 공개됩니다.<br>
 문의 <a href="mailto:pixelair.co@gmail.com">pixelair.co@gmail.com</a></footer>
 </div>
+
+<hr class="sep">
+
+<div id="doc-en" class="lang">
+<header class="cover"><h1>Privacy Policy</h1><p class="meta">[ Kkomsil Photo ]  |  Service name: Pixel Air</p><p class="meta">Published: 5 August 2026  |  Effective: 12 August 2026  |  Version: v1.1</p></header>
+<main>
+<div class="box intro"><p>[ Kkomsil Photo ] (the "Company") establishes and discloses this Privacy Policy in accordance with Article 30 of the Personal Information Protection Act ("PIPA") of the Republic of Korea, in order to protect the personal information of data subjects and to handle related grievances promptly and effectively.</p><p>This English text is a reference translation provided for the convenience of readers. The Korean version is the official text; in the event of any discrepancy, the Korean version prevails.</p></div>
+<nav class="toc" aria-label="Contents">
+<h2>Contents</h2>
+<ol><li><a href="#en-art1">Article 1 (General Provisions and Scope of Application)</a></li><li><a href="#en-art2">Article 2 (Categories of Personal Information Collected and Purposes of Processing)</a></li><li><a href="#en-art3">Article 3 (Retention and Use Period)</a></li><li><a href="#en-art4">Article 4 (Destruction of Personal Information)</a></li><li><a href="#en-art5">Article 5 (Processing of Sensitive Information — Biometric Information)</a></li><li><a href="#en-art6">Article 6 (Use of Photographs for Service Promotion)</a></li><li><a href="#en-art7">Article 7 (Entrustment of Personal Information Processing)</a></li><li><a href="#en-art8">Article 8 (Cross-Border Transfer of Personal Information)</a></li><li><a href="#en-art9">Article 9 (Provision of Personal Information to Third Parties)</a></li><li><a href="#en-art10">Article 10 (Rights and Obligations of Data Subjects and How to Exercise Them)</a></li><li><a href="#en-art11">Article 11 (Processing of Personal Information of Children Under 14)</a></li><li><a href="#en-art12">Article 12 (Measures to Ensure the Security of Personal Information)</a></li><li><a href="#en-art13">Article 13 (Installation and Operation of Automatic Collection Devices)</a></li><li><a href="#en-art14">Article 14 (Business Information and Personal Information Protection Officer)</a></li><li><a href="#en-art15">Article 15 (Reporting Infringements and Remedies)</a></li><li><a href="#en-art16">Article 16 (Amendments to This Privacy Policy)</a></li></ol>
+</nav>
+<section id="en-art1">
+<h2>Article 1 (General Provisions and Scope of Application)</h2>
+<p class="cl">① The Company provides a service under the name "Pixel Air" that uses AI facial recognition technology to automatically sort photographs taken at an event venue and deliver them to individual participants (the "Service"). "Pixel Air" is the name of the service provided by the Company; the holder of the rights and obligations under this Privacy Policy is the Company.</p>
+<p class="cl">② The Company processes the personal information it handles in the course of operating the Service lawfully and in accordance with applicable laws and this Privacy Policy, and protects the personal information and interests of data subjects.</p>
+<p class="cl">③ The Company acts as a processor entrusted by the event host with personal information processing duties. The personal information controller in respect of the Service is the host of each event.</p>
+<p class="cl">④ This Privacy Policy is established and disclosed pursuant to Article 30 of PIPA, as applied mutatis mutandis to entrusted processors under Article 26(8) of the same Act, so that data subjects may directly review the personal information processing actually carried out by the Company as a processor. The primary party responsible for notice, consent and the exercise of rights vis-à-vis data subjects is the host of each event, and the applicable standards are set out in that host's privacy policy and in the data processing agreement.</p>
+<p class="cl">⑤ This Privacy Policy applies to personal information processing carried out on the participant-facing web pages operated by the Company (the QR consent and registration page and the photo retrieval gallery page) and in the related processing systems.</p>
+</section>
+<section id="en-art2">
+<h2>Article 2 (Categories of Personal Information Collected and Purposes of Processing)</h2>
+<p>As entrusted by the event host, the Company collects and processes the following personal information.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">General personal information</th><td>Among the participant's name, email address and mobile telephone number, the items corresponding to the delivery method selected by the participant</td></tr>
+<tr><th scope="row">Sensitive information</th><td>The facial photograph registered by the participant for the purpose of sorting and delivering photographs (the "Registered Photograph") and the facial feature vector extracted from that Registered Photograph</td></tr>
+<tr><th scope="row">Photograph files</th><td>Among the photographs taken at the event venue, the files uploaded to the Company's system for matching and delivery to participants (including facial images)</td></tr>
+<tr><th scope="row">Access logs</th><td>IP address, access date and time, and browser information generated automatically when the participant-facing web pages are used. Access logs recorded at the time of consent are retained as part of the electronic consent record for the purpose of evidencing that consent.</td></tr>
+<tr><th scope="row">Purposes of processing</th><td>Automatic per-person photograph sorting based on AI facial recognition; best-shot selection (filtering of closed eyes, motion blur and overexposure); delivery of the participant's own photographs; recording and evidencing of consent; and responding to enquiries relating to use of the Service</td></tr>
+<tr><th scope="row">Nature of processing</th><td>Entrusted processing under Article 26 of PIPA. The personal information controller is the host of each event.</td></tr>
+<tr><th scope="row">Legal basis</th><td>PIPA Article 15(1)1, Article 23(1)1 (separate consent of the data subject), and Article 26</td></tr>
+</tbody></table></div>
+</section>
+<section id="en-art3">
+<h2>Article 3 (Retention and Use Period)</h2>
+<p class="cl">① The Company retains personal information for the periods set out below and destroys it without delay upon expiry of the applicable period.</p>
+<div class="tw"><table class="data">
+<thead><tr><th>Category</th><th>Retention period</th><th>Basis</th></tr></thead>
+<tbody>
+<tr><td>Participant general personal information (name, contact details)</td><td>30 days from the end date of the event</td><td>Data processing agreement and consent of the data subject</td></tr>
+<tr><td>Registered Photograph</td><td>30 days from the end date of the event</td><td>The period necessary to complete the Service, including handling of re-delivery requests for undelivered photographs (data processing agreement and consent of the data subject)</td></tr>
+<tr><td>Facial feature vector (sensitive information)</td><td>Destroyed immediately upon completion of photograph delivery as a matter of principle. It may, however, be retained for up to 30 days from the end date of the event in order to complete the Service, including handling of re-delivery and non-delivery requests, and is destroyed immediately upon expiry of that period.</td><td>PIPA Articles 21 and 23</td></tr>
+<tr><td>Event photographs (files uploaded to the system)</td><td>30 days from the end date of the event</td><td>The period necessary to complete the Service, including handling of re-delivery requests for undelivered photographs (data processing agreement)</td></tr>
+<tr><td>Electronic consent records (timestamp, IP address, consent items)</td><td>5 years from the date of consent</td><td>The five-year commercial limitation period under Article 64 of the Commercial Act, and evidencing of consent</td></tr>
+<tr><td>Participant page access logs</td><td>30 days from the end date of the event</td><td>The Company's own retention standard for service operation and security purposes</td></tr>
+</tbody></table></div>
+<p class="cl">② Where a data subject requests deletion of personal information or withdraws consent, the Company destroys the relevant information without delay, regardless of the periods set out in paragraph ①.</p>
+</section>
+<section id="en-art4">
+<h2>Article 4 (Destruction of Personal Information)</h2>
+<p class="cl">① Where the retention period has elapsed or the purpose of processing has been achieved, the Company destroys the personal information concerned without delay.</p>
+<p class="cl">② The subjects and methods of destruction are as follows.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Facial feature vectors</th><td>Deleted using the deletion function of the facial recognition processing system.</td></tr>
+<tr><th scope="row">Image files</th><td>Registered Photographs, event photographs uploaded to the system, thumbnails and delivery archive files are deleted using the deletion function of the storage service.</td></tr>
+<tr><th scope="row">Information stored in databases</th><td>Personal information records stored in databases, such as names and contact details, are deleted.</td></tr>
+<tr><th scope="row">Paper documents</th><td>Where consent forms or similar documents have been received in paper form at the venue, they are destroyed by shredding or incineration.</td></tr>
+</tbody></table></div>
+<p class="cl">③ Personal information destroyed under paragraph ② cannot be retrieved or restored from the Company's Service or operational systems.</p>
+<p class="cl">④ The Company maintains a destruction record noting the date and time of destruction, the items destroyed and the person responsible, and provides materials evidencing the outcome of destruction upon request by the event host.</p>
+<p class="cl">⑤ Information subject to a statutory retention obligation is stored separately from other personal information for the applicable period and is then destroyed.</p>
+</section>
+<section id="en-art5">
+<h2>Article 5 (Processing of Sensitive Information — Biometric Information)</h2>
+<div class="box warn"><p>⚠ Facial feature vectors constitute biometric information under Article 18 of the Enforcement Decree of PIPA and are therefore sensitive information. The Company processes them only where it has obtained the data subject's explicit consent, given separately from consent to the processing of general personal information.</p></div>
+<p class="cl">① The Company's facial recognition processing operates as follows.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Source of feature extraction</th><td>The facial photograph registered by the participant for photograph sorting and delivery (the Registered Photograph)</td></tr>
+<tr><th scope="row">Search method</th><td>The facial feature vector extracted from the Registered Photograph is used to locate, among the photographs taken at the event venue, those in which that participant appears.</td></tr>
+<tr><th scope="row">Scope of stored feature vectors</th><td>Stored facial feature vectors are limited to those of participants who have consented to use of the Service and registered a facial photograph. Comparison values derived from faces appearing in event photographs are generated transiently during the search process, are not stored, and cease to exist immediately upon completion of the search.</td></tr>
+<tr><th scope="row">Purposes of processing</th><td>Automatic per-person photograph sorting, best-shot selection, and delivery of the participant's own photographs</td></tr>
+<tr><th scope="row">Processing technology</th><td>Amazon Web Services Rekognition</td></tr>
+<tr><th scope="row">Storage location</th><td>AWS Seoul Region (ap-northeast-2). Processed and stored solely within the Republic of Korea and not transferred abroad.</td></tr>
+<tr><th scope="row">Encryption</th><td>AES-256 server-side encryption at rest; TLS 1.2 or higher in transit</td></tr>
+<tr><th scope="row">Provision to third parties</th><td>AWS acts solely as an entrusted processor and does not use the data for any other purpose.</td></tr>
+<tr><th scope="row">Time of destruction</th><td>As provided in Articles 3 and 4 of this Privacy Policy.</td></tr>
+</tbody></table></div>
+<p class="cl">② The Company does not use facial feature vectors for any purpose other than per-person photograph sorting and delivery, and does not reuse them for other events or for searches relating to other participants.</p>
+<p class="cl">③ The Company does not collect facial photographs from participants who have not consented to the processing of facial feature vectors, and does not store or retain their facial feature vectors.</p>
+</section>
+<section id="en-art6">
+<h2>Article 6 (Use of Photographs for Service Promotion)</h2>
+<p class="cl">① Where the Company uses event photographs for the purpose of introducing or promoting its Service, it does so only where it has obtained both the separate optional consent of the data subject and the prior written consent of the event host. Declining to give such consent results in no disadvantage whatsoever in relation to use of the photograph delivery service.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Scope of use</th><td>Use in service introduction materials, proposals, the website and online channels and other promotional materials.</td></tr>
+<tr><th scope="row">Retention period</th><td>Until the earlier of two years from the date of consent or the withdrawal of consent</td></tr>
+<tr><th scope="row">Channel for withdrawal of consent</th><td><a href="mailto:pixelair.co@gmail.com">pixelair.co@gmail.com</a></td></tr>
+</tbody></table></div>
+<p class="cl">② Consent under this Article may be withdrawn at any time. Upon a withdrawal request, the Company immediately ceases any further use of the photograph concerned and destroys the copy it holds. Recovery of materials already distributed or published prior to withdrawal may be technically and physically impossible; this does not limit the data subject's right of withdrawal but reflects the nature of distribution already completed.</p>
+<p class="cl">③ Use of event photographs by the event host for its own promotional or archival purposes falls within the processing domain of the event host as the personal information controller, is not governed by this Privacy Policy, and is subject to that host's privacy policy and participation notices.</p>
+</section>
+<section id="en-art7">
+<h2>Article 7 (Entrustment of Personal Information Processing)</h2>
+<p class="cl">① For the operation of the Service, the Company entrusts personal information processing duties as follows.</p>
+<div class="tw"><table class="data">
+<thead><tr><th>Sub-processor</th><th>Entrusted duties</th></tr></thead>
+<tbody>
+<tr><td>Amazon Web Services (AWS Korea LLC)</td><td>AI photograph sorting and delivery</td></tr>
+<tr><td>Railsware Products Studio LLC (Mailtrap)</td><td>Sending of photograph retrieval notification emails</td></tr>
+<tr><td>SOLAPI Co., Ltd.</td><td>Sending of photograph retrieval notification SMS messages</td></tr>
+</tbody></table></div>
+<p class="cl">② When concluding an entrustment agreement, the Company specifies in writing, in accordance with Article 26 of PIPA, matters including the prohibition of processing beyond the stated purpose, safety measures, restrictions on sub-entrustment, supervision of the entrusted party and liability for damages, and supervises the sub-processor's compliance.</p>
+<p class="cl">③ Where the Company sub-entrusts to a sub-processor listed in paragraph ① duties entrusted to it by an event host, it obtains the host's prior consent in accordance with Article 26(6) of PIPA.</p>
+<p class="cl">④ Where the content of the entrusted duties or the identity of a sub-processor changes, the Company discloses the change without delay through this Privacy Policy.</p>
+</section>
+<section id="en-art8">
+<h2>Article 8 (Cross-Border Transfer of Personal Information)</h2>
+<p class="cl">① In order to send photograph retrieval notifications to participants, the Company transfers personal information abroad as set out below. This transfer constitutes entrusted processing necessary for the performance of a contract and for the convenience of the data subject under Article 28-8(1)3 of PIPA, and the matters listed in Article 28-8(2) of the same Act are disclosed as follows.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Transferee</th><td>Railsware Products Studio LLC (service name: Mailtrap)  |  Contact: <a href="mailto:support@mailtrap.io">support@mailtrap.io</a></td></tr>
+<tr><th scope="row">Country of transfer</th><td>United States of America (Delaware corporation; place of business: Pasadena, California)</td></tr>
+<tr><th scope="row">Timing and method of transfer</th><td>At the time a photograph retrieval notification email (sender address: <a href="mailto:noreply@pixel-air.com">noreply@pixel-air.com</a>) is sent to the participant, transmitted in encrypted form over the information and communications network</td></tr>
+<tr><th scope="row">Items transferred</th><td>Recipient's name and email address</td></tr>
+<tr><th scope="row">Transferee's purpose of use</th><td>Sending photograph retrieval notification emails to the participant</td></tr>
+<tr><th scope="row">Transferee's retention and use period</th><td>Until completion of the sending process. Sending logs may, however, be retained for a certain period in accordance with the service provider's policy.</td></tr>
+<tr><th scope="row">Method of refusing transfer</th><td>A data subject may notify the Company of a refusal of cross-border transfer at <a href="mailto:pixelair.co@gmail.com">pixelair.co@gmail.com</a>. Upon receipt of such notice, the Company immediately excludes that data subject's email address from cross-border transfer.</td></tr>
+</tbody></table></div>
+<p class="cl">② Where a data subject refuses cross-border transfer under paragraph ①, photograph retrieval by email is not possible. The data subject may, however, select another delivery method processed solely within the Republic of Korea, such as SMS, and may in that case continue to use the photograph delivery service without restriction.</p>
+<p class="cl">③ Personal information used for SMS delivery is processed solely within the Republic of Korea through SOLAPI Co., Ltd., a domestic provider, and is not transferred abroad.</p>
+<p class="cl">④ Facial feature vectors and photograph files are processed and stored solely in the AWS Seoul Region (ap-northeast-2) and are not transferred abroad.</p>
+</section>
+<section id="en-art9">
+<h2>Article 9 (Provision of Personal Information to Third Parties)</h2>
+<p class="cl">① The Company does not provide the personal information of data subjects to third parties, except in the cases set out in the following subparagraphs and in paragraph ②.</p>
+<p class="item">1. Where the data subject has given separate prior consent</p>
+<p class="item">2. Where there is a special provision in a statute, or where an investigative authority makes a request for investigative purposes in accordance with the procedures and methods prescribed by statute</p>
+<p class="cl">② Owing to the nature of event photography, most photographs include several participants together. Accordingly, when a photograph in which a participant appears is delivered to that participant, the facial images of other participants photographed alongside them may be included. The Company takes measures at the photography stage to minimise the delivery of photographs in which persons other than the recipient are included in an identifiable form.</p>
+<p class="cl">③ In relation to the provision described in paragraph ②, the recipients are the other participants photographed in the same photograph, the item provided is the facial image contained in the photograph, and the purpose of provision is delivery of photographs to participants wishing to use the Service. Once delivery to a participant's device is complete, the receiving participant holds the photograph and the Company has no further involvement.</p>
+<p class="cl">④ A participant who does not wish to be photographed at all, or who wishes to be excluded from delivery of photographs in which they appear, may make a request to the event host or to the Company. Upon receipt of such a request, the Company immediately excludes the relevant photographs from delivery.</p>
+<p class="cl">⑤ Except in the cases set out in paragraphs ① through ④, the Company does not provide participant information that it processes as an entrusted processor to any third party, and does not sell it or use it for advertising purposes.</p>
+</section>
+<section id="en-art10">
+<h2>Article 10 (Rights and Obligations of Data Subjects and How to Exercise Them)</h2>
+<p class="cl">① Data subjects may exercise the following rights.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Right of access</th><td>To request confirmation of the status and content of processing of their personal information and sensitive information.</td></tr>
+<tr><th scope="row">Right to rectification and erasure</th><td>To request correction of inaccurate information or deletion of unnecessary information.</td></tr>
+<tr><th scope="row">Right to suspension of processing</th><td>To request that processing of personal information be suspended.</td></tr>
+<tr><th scope="row">Withdrawal of consent</th><td>Consent may be withdrawn at any time. Upon a withdrawal request, the Company destroys the personal information and facial feature vectors it holds without delay. Photographs already delivered to the participant have been transmitted to the participant's own device and cannot technically be recovered. This does not limit the data subject's right to withdraw consent but reflects the technical nature of a transmission already completed.</td></tr>
+<tr><th scope="row">Right to claim damages</th><td>To seek redress where damage has arisen from an infringement of personal information.</td></tr>
+</tbody></table></div>
+<p class="cl">② Rights may be exercised by the following means.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Point of contact</th><td>Submission by email to <a href="mailto:pixelair.co@gmail.com">pixelair.co@gmail.com</a></td></tr>
+<tr><th scope="row">Processing period</th><td>Within 10 days of receipt (where unavoidable grounds exist, this may be extended by up to a further 10 days, with notice of the grounds)</td></tr>
+<tr><th scope="row">Exercise through an agent</th><td>Rights may be exercised through a legal representative or a duly authorised agent, in which case documentation evidencing the authorisation must be submitted.</td></tr>
+</tbody></table></div>
+<p class="cl">③ Requests for access, rectification, erasure or suspension of processing concerning an event participant's personal information may also be made to the relevant event host as the personal information controller. Requests received by the Company are handled without delay in its capacity as an entrusted processor and, where necessary, are notified to the relevant host.</p>
+<p class="cl">④ Data subjects must comply with applicable laws and must not infringe the personal information of others or provide false information.</p>
+</section>
+<section id="en-art11">
+<h2>Article 11 (Processing of Personal Information of Children Under 14)</h2>
+<p class="cl">① Where the Company processes the personal information of a child under 14 years of age, it obtains the consent of the child's legal representative in accordance with Article 22-2 of PIPA.</p>
+<p class="cl">② Where the consent of a legal representative is not confirmed, the Company does not provide the Service to the child concerned and destroys without delay any information already collected.</p>
+<p class="cl">③ For events at which the participation of children under 14 is anticipated, the Company agrees the legal representative consent procedure with the event host in advance.</p>
+</section>
+<section id="en-art12">
+<h2>Article 12 (Measures to Ensure the Security of Personal Information)</h2>
+<p>In accordance with Article 29 of PIPA and Article 30 of its Enforcement Decree, the Company takes the following measures to ensure the security of personal information.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Administrative measures</th><td>Establishment and implementation of an internal management plan for personal information; minimisation of the number of personnel handling personal information and provision of training</td></tr>
+<tr><th scope="row">Technical measures</th><td>Encryption in transit (TLS 1.2 or higher), AES-256 server-side encryption of stored data, and management and restriction of access privileges</td></tr>
+<tr><th scope="row">Physical measures</th><td>Storage of business devices and storage media containing personal information in secure locations with access control</td></tr>
+<tr><th scope="row">Access log management</th><td>Retention of access logs of the personal information processing system for at least the period prescribed by the relevant public notice</td></tr>
+</tbody></table></div>
+</section>
+<section id="en-art13">
+<h2>Article 13 (Installation and Operation of Automatic Collection Devices)</h2>
+<p class="cl">① This Article applies to the participant-facing web pages operated by the Company (the QR consent and registration page and the photo retrieval gallery page).</p>
+<p class="cl">② The Company does not install or operate cookies or any other device that automatically collects personal information on its participant-facing web pages.</p>
+<p class="cl">③ Should the Company introduce such a device in future, it will disclose the purpose, the items collected and the means of refusal in advance by reflecting them in this Privacy Policy.</p>
+</section>
+<section id="en-art14">
+<h2>Article 14 (Business Information and Personal Information Protection Officer)</h2>
+<p class="cl">① The business entity holding the rights and obligations relating to personal information processing under this Privacy Policy is as follows.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Business name</th><td>[ Kkomsil Photo ]</td></tr>
+<tr><th scope="row">Representative</th><td>[ Eunsil Yoon ]</td></tr>
+<tr><th scope="row">Business registration number</th><td>[ 594-30-01670 ]</td></tr>
+<tr><th scope="row">Service name</th><td>Pixel Air</td></tr>
+</tbody></table></div>
+<p class="cl">② The Company has designated a Personal Information Protection Officer, who has overall responsibility for personal information processing and handles complaints and remedies for data subjects, as follows.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Personal Information Protection Officer</th><td>Name: Eunsil Yoon / Title: Representative</td></tr>
+<tr><th scope="row">Contact</th><td>Tel: [ 070-8098-9202 ]  |  Email: <a href="mailto:pixelair.co@gmail.com">pixelair.co@gmail.com</a></td></tr>
+</tbody></table></div>
+<p class="cl">③ Data subjects may direct all enquiries, complaints and requests for remedy relating to personal information protection arising from use of the Service to the Personal Information Protection Officer, and the Company will respond and act without delay.</p>
+</section>
+<section id="en-art15">
+<h2>Article 15 (Reporting Infringements and Remedies)</h2>
+<p>Data subjects may seek assistance from the following bodies in order to obtain redress for infringements of personal information.</p>
+<div class="tw"><table class="data">
+<thead><tr><th>Organization</th><th>Function</th><th>Contact</th></tr></thead>
+<tbody>
+<tr><td>Personal Information Protection Commission</td><td>Reporting of personal information infringements and policy enquiries</td><td><a href="https://www.pipc.go.kr" rel="noopener">www.pipc.go.kr</a>  |  182 (no area code)</td></tr>
+<tr><td>Personal Information Dispute Mediation Committee</td><td>Applications for mediation of personal information disputes</td><td><a href="https://www.kopico.go.kr" rel="noopener">www.kopico.go.kr</a>  |  1833-6972</td></tr>
+<tr><td>Korea Internet &amp; Security Agency (KISA)</td><td>Consultation on reports of personal information infringement</td><td><a href="https://privacy.kisa.or.kr" rel="noopener">privacy.kisa.or.kr</a>  |  118 (no area code)</td></tr>
+<tr><td>Supreme Prosecutors' Office, Cyber Investigation Division</td><td>Reporting of cybercrime</td><td><a href="https://www.spo.go.kr" rel="noopener">www.spo.go.kr</a>  |  1301</td></tr>
+<tr><td>National Police Agency, National Office of Investigation (Cyber Bureau)</td><td>Reporting of cybercrime</td><td><a href="https://ecrm.cyber.go.kr" rel="noopener">ecrm.cyber.go.kr</a>  |  182 (no area code)</td></tr>
+</tbody></table></div>
+</section>
+<section id="en-art16">
+<h2>Article 16 (Amendments to This Privacy Policy)</h2>
+<p class="cl">① This Privacy Policy applies from its effective date, and its content may be amended in response to changes in applicable laws or in the Company's policies.</p>
+<p class="cl">② Where the Company amends this Privacy Policy, it gives notice from 7 days before the effective date through the participant-facing web pages and through event hosts. Where there is a material change affecting the rights of data subjects, notice is given from 30 days before the effective date.</p>
+<p class="cl">③ Previous versions of this Privacy Policy are available on request using the contact details in Article 14.</p>
+<h3>Revision history</h3>
+<div class="tw"><table class="data">
+<thead><tr><th>Version</th><th>Effective date</th></tr></thead>
+<tbody>
+<tr><td>v1.0</td><td>1 May 2026</td></tr>
+<tr><td>v1.1</td><td>12 August 2026</td></tr>
+</tbody></table></div>
+</section>
+<div class="box closing"><p>This Privacy Policy is established and disclosed pursuant to Article 30 of the Personal Information Protection Act and applies together with the Company's personal information consent form and data processing agreement.</p><p>This English text is a reference translation. The Korean version is the official text and prevails in the event of any discrepancy.</p></div>
+</main>
+<footer>This Privacy Policy is disclosed pursuant to Article 30 of the Personal Information
+Protection Act of the Republic of Korea.<br>
+Contact <a href="mailto:pixelair.co@gmail.com">pixelair.co@gmail.com</a></footer>
+</div>
+
+</div>
+</div>
+<script>
+(function(){
+  var docEl=document.documentElement, bar=document.getElementById('langbar');
+  var TITLE={ko:'개인정보 처리방침 | Pixel Air',en:'Privacy Policy | Pixel Air'};
+  function pick(){
+    var h=(location.hash||'').toLowerCase();
+    if(h.indexOf('#en-')===0||h==='#en') return 'en';
+    if(h.indexOf('#art')===0||h==='#ko') return 'ko';
+    return docEl.getAttribute('data-lang')||'ko';
+  }
+  function apply(l,push){
+    docEl.setAttribute('lang',l); docEl.setAttribute('data-lang',l);
+    document.title=TITLE[l];
+    var bs=bar.getElementsByTagName('button');
+    for(var i=0;i<bs.length;i++){
+      bs[i].setAttribute('aria-current', bs[i].getAttribute('data-l')===l?'true':'false');
+    }
+    if(push && location.hash!=='#'+l && history.replaceState){
+      history.replaceState(null,'','#'+l);
+    }
+  }
+  bar.addEventListener('click',function(e){
+    var t=e.target;
+    while(t && t!==bar && t.tagName!=='BUTTON'){t=t.parentNode;}
+    if(t && t.tagName==='BUTTON'){apply(t.getAttribute('data-l'),true);}
+  });
+  window.addEventListener('hashchange',function(){apply(pick(),false);});
+  apply(pick(),false);
+})();
+</script>
 </body>
 </html>
