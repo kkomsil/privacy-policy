@@ -15,8 +15,9 @@
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--soft);color:var(--ink);line-height:1.75;
-font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",
-"맑은 고딕","Noto Sans KR",sans-serif;font-size:16px;word-break:keep-all;overflow-wrap:anywhere}
+font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Segoe UI",
+"Malgun Gothic","맑은 고딕","Noto Sans KR",sans-serif;
+font-size:16px;word-break:keep-all;overflow-wrap:anywhere}
 html[data-lang="en"] body{word-break:normal}
 .shell{max-width:760px;margin:0 auto;padding:0}
 @media(min-width:800px){.shell{padding:22px 0 32px}}
@@ -45,9 +46,9 @@ section{margin:0 0 34px;scroll-margin-top:16px}
 p{margin:.55em 0}
 p.cl{margin:.55em 0 .55em .2em}
 p.item{margin:.3em 0 .3em 1.1em;color:#414750}
-/* 본문 양쪽 정렬 — 제목·표머리·목차는 제외 */
-main p,.box p,table td{text-align:justify;text-justify:inter-word}
-html[data-lang="en"] main p,html[data-lang="en"] .box p,html[data-lang="en"] table td{
+/* 본문 문단만 양쪽 정렬 — 표는 폭이 좁아 어절 사이가 벌어지므로 제외 */
+main p,.box p{text-align:justify;text-justify:inter-word}
+html[data-lang="en"] main p,html[data-lang="en"] .box p{
 hyphens:auto;-webkit-hyphens:auto;-ms-hyphens:auto}
 .cover .meta,nav.toc a{text-align:left}
 a{color:var(--blue)}
@@ -58,14 +59,21 @@ a:hover{text-decoration:none}
 .intro{background:#EEF4FF;border-left:6px solid var(--blue)}
 .warn{background:var(--warnbg);border-left:6px solid var(--warnln);color:#6B5200}
 .closing{background:var(--soft);border:1px solid var(--line);color:#4B5563;font-size:.9rem}
-.tw{margin:14px 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
-table{width:100%;border-collapse:collapse;font-size:.92rem}
-th,td{border:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
+.tw{margin:16px 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.95rem;line-height:1.62;
+font-variant-numeric:tabular-nums}
+th,td{border:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}
 table.kv th{background:var(--soft);color:#1F2937;font-weight:600;width:31%;white-space:nowrap}
 html[data-lang="en"] table.kv th{white-space:normal;width:29%}
-table.data thead th{background:var(--navy);color:#fff;font-weight:600;white-space:nowrap}
+table.data thead th{background:var(--navy);color:#fff;font-weight:600;white-space:nowrap;
+line-height:1.4}
 html[data-lang="en"] table.data thead th{white-space:normal}
 table.data tbody td:first-child{background:var(--soft);font-weight:600}
+/* 행 구분 — 여러 줄짜리 셀이 섞여도 같은 행을 눈으로 따라가게 */
+table.data tbody tr:nth-child(even) td{background:#FAFBFD}
+table.data tbody tr:nth-child(even) td:first-child{background:#F0F3F8}
+table.data tbody tr:hover td{background:#F4F8FF}
+table.data tbody tr:hover td:first-child{background:#E8EFFA}
 nav.toc{background:var(--soft);border:1px solid var(--line);border-radius:7px;
 padding:16px 18px;margin:0 0 30px}
 nav.toc h2{background:none;border:0;padding:0;margin:0 0 10px;font-size:.95rem}
@@ -131,7 +139,7 @@ d.setAttribute('data-lang',(function(){
 <div class="wrap">
 
 <div id="doc-ko" class="lang">
-<header class="cover"><h1>개인정보 처리방침</h1><p class="meta">[ 꼼실포토 ]  |  서비스명: Pixel Air (픽셀에어)</p><p class="meta">공고일: 2026년 8월 14일  |  시행일: 2026년 8월 14일  |  버전: v1.0</p></header>
+<header class="cover"><h1>개인정보 처리방침</h1><p class="meta">[ 꼼실포토 ]  |  서비스명: Pixel Air (픽셀에어)</p><p class="meta">공고일: 2026년 8월 19일  |  시행일: 2026년 8월 19일  |  버전: v1.0</p></header>
 <main>
 <div class="box intro"><p>[ 꼼실포토 ](이하 "회사")는 개인정보보호법 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보 처리방침을 수립·공개합니다.</p></div>
 <nav class="toc" aria-label="목차">
@@ -143,7 +151,7 @@ d.setAttribute('data-lang',(function(){
 <p class="cl">① 회사는 "Pixel Air(픽셀에어)"라는 명칭으로, AI 안면인식 기술을 활용하여 행사 현장에서 촬영된 사진을 참가자 개인에게 자동 분류·전송하는 서비스(이하 "서비스")를 제공합니다. "Pixel Air"는 회사가 제공하는 서비스의 명칭이며, 본 처리방침상 권리·의무의 주체는 회사입니다.</p>
 <p class="cl">② 회사는 서비스 운영 과정에서 취급하는 개인정보를 관련 법령 및 본 처리방침에 따라 적법하게 처리하며, 정보주체의 개인정보와 권익을 보호합니다.</p>
 <p class="cl">③ 회사는 행사 주최사로부터 개인정보 처리 업무를 위탁받아 수행하는 수탁사이며, 본 서비스와 관련한 개인정보처리자는 각 행사 주최사입니다.</p>
-<p class="cl">④ 본 처리방침은 개인정보보호법 제26조 제8항에 따라 수탁자에게 준용되는 같은 법 제30조에 근거하여, 회사가 수탁사로서 실제 수행하는 개인정보 처리의 내용을 정보주체가 직접 확인할 수 있도록 수립·공개하는 것입니다. 정보주체에 대한 고지·동의 및 권리 행사의 1차적 주체는 각 행사 주최사이며, 그 처리 기준은 주최사의 개인정보 처리방침 및 위탁계약에 따릅니다.</p>
+<p class="cl">④ 본 처리방침은 개인정보보호법 제26조 제8항에 따라 수탁자에게 준용되는 같은 법 제30조에 근거하여, 회사가 수탁사로서 실제 수행하는 개인정보 처리의 내용을 정보주체가 직접 확인할 수 있도록 수립·공개하는 것입니다. 정보주체에 대한 고지·동의 및 권리 행사의 1차적 주체는 각 행사 주최사이며, 그 처리 기준은 주최사의 개인정보 처리방침 및 위탁계약에 따릅니다. 다만 위탁계약에서 정하는 경우, 회사는 주최사를 대행하여 정보주체로부터 동의를 취득할 수 있습니다.</p>
 <p class="cl">⑤ 본 처리방침은 회사가 운영하는 참가자용 웹 페이지(QR 동의·등록 페이지, 사진 수령 갤러리 페이지) 및 관련 처리 시스템에서 이루어지는 개인정보 처리에 적용됩니다.</p>
 </section>
 <section id="art2">
@@ -152,12 +160,13 @@ d.setAttribute('data-lang',(function(){
 <div class="tw"><table class="kv">
 <tbody>
 <tr><th scope="row">일반 개인정보</th><td>성명, 이메일 주소, 휴대폰 번호 중 참가자가 선택한 사진 수신 수단에 해당하는 항목</td></tr>
-<tr><th scope="row">민감정보</th><td>사진의 분류 및 전송을 위하여 참가자가 등록한 얼굴 사진(이하 "등록 사진") 및 등록 사진에서 추출한 안면 특징값</td></tr>
+<tr><th scope="row">민감정보</th><td>사진의 분류 및 전송을 위하여 참가자가 등록한 얼굴 사진(이하 "등록 사진") 및 등록 사진에서 생성한 안면 특징값</td></tr>
 <tr><th scope="row">사진 파일</th><td>행사 현장에서 촬영된 사진 중 사진 매칭 및 참가자 전송을 위하여 회사 시스템에 업로드된 파일(얼굴 이미지 포함)</td></tr>
-<tr><th scope="row">접속 기록</th><td>참가자용 웹 페이지 이용 시 자동으로 생성되는 IP 주소, 접속 일시, 브라우저 정보. 이 중 동의 시점의 접속 기록은 동의 사실의 입증을 위하여 전자 동의 기록의 일부로 보존됩니다.</td></tr>
+<tr><th scope="row">접속 기록</th><td>동의 시점에 자동으로 생성되는 IP 주소 및 접속 일시. 동의 사실의 입증을 위하여 전자 동의 기록의 일부로 보존됩니다.</td></tr>
+<tr><th scope="row">웹 접속 정보</th><td>참가자용 웹 페이지 접속 시 통신 과정에서 자동으로 전달되는 IP 주소 및 브라우저 정보. 웹 페이지의 보안 및 전송을 위하여 제7조의 수탁사를 통하여 처리되며, 회사는 이를 별도로 저장하지 않습니다.</td></tr>
 <tr><th scope="row">처리 목적</th><td>AI 안면인식 기반 개인별 사진 자동 분류, 베스트 컷 선별(눈감음·흔들림·노출과다 필터링), 본인 사진 전송, 동의 사실의 기록 및 입증, 서비스 이용 관련 문의 응대</td></tr>
 <tr><th scope="row">처리 형태</th><td>개인정보보호법 제26조에 따른 위탁 처리이며, 개인정보처리자는 각 행사 주최사입니다.</td></tr>
-<tr><th scope="row">법적 근거</th><td>개인정보보호법 제15조 제1항 제1호, 제23조 제1항 제1호(정보주체의 별도 동의), 제26조</td></tr>
+<tr><th scope="row">법적 근거</th><td>개인정보보호법 제15조 제1항 제1호, 제17조 제1항 제1호, 제23조 제1항 제1호(정보주체의 별도 동의), 제26조</td></tr>
 </tbody></table></div>
 </section>
 <section id="art3">
@@ -171,7 +180,6 @@ d.setAttribute('data-lang',(function(){
 <tr><td>안면 특징값 (민감정보)</td><td>사진 전송 완료 즉시 파기를 원칙으로 함. 다만 사진의 재전송 및 미전송 요청 처리 등 서비스 완결을 위해 행사 종료일로부터 최대 30일간 보유할 수 있으며, 해당 기간 만료 즉시 파기</td><td>개인정보보호법 제21조·제23조</td></tr>
 <tr><td>행사 촬영 사진 (시스템 업로드 파일)</td><td>행사 종료일로부터 30일</td><td>미전송 사진의 재전송 요청 처리 등 서비스 완결에 필요한 기간 (위탁계약)</td></tr>
 <tr><td>전자 동의 기록 (일시·IP·동의 항목)</td><td>동의일로부터 5년</td><td>상법 제64조에 따른 상사시효 및 동의 사실의 입증</td></tr>
-<tr><td>참가자 페이지 접속 기록</td><td>행사 종료일로부터 30일</td><td>서비스 운영 및 보안 목적의 자체 보존 기준</td></tr>
 </tbody></table></div>
 <p class="cl">② 정보주체가 개인정보의 삭제 또는 동의 철회를 요청한 경우, 회사는 제1항의 기간에 관계없이 해당 정보를 지체 없이 파기합니다.</p>
 </section>
@@ -196,8 +204,8 @@ d.setAttribute('data-lang',(function(){
 <p class="cl">① 회사의 안면인식 처리 방식은 다음과 같습니다.</p>
 <div class="tw"><table class="kv">
 <tbody>
-<tr><th scope="row">특징값 추출 대상</th><td>참가자의 사진분류 및 전송을 위해 등록한 얼굴 사진(등록 사진)</td></tr>
-<tr><th scope="row">검색 방식</th><td>등록 사진에서 추출한 안면 특징값을 사용하여 행사 현장에서 촬영된 사진에서 해당 참가자가 포함된 사진을 찾습니다.</td></tr>
+<tr><th scope="row">특징값 생성 대상</th><td>참가자의 사진분류 및 전송을 위해 등록한 얼굴 사진(등록 사진)</td></tr>
+<tr><th scope="row">검색 방식</th><td>등록 사진에서 생성한 안면 특징값을 사용하여 행사 현장에서 촬영된 사진에서 해당 참가자가 포함된 사진을 찾습니다.</td></tr>
 <tr><th scope="row">저장되는 특징값의 범위</th><td>저장되는 안면 특징값은 서비스 이용에 동의하고 얼굴 사진을 등록한 참가자의 것에 한정됩니다. 행사 현장 촬영 사진 속 얼굴의 대조값은 검색 과정에서 일시적으로 생성되나 저장되지 않으며, 검색 완료 즉시 소멸합니다.</td></tr>
 <tr><th scope="row">처리 목적</th><td>개인별 사진 자동 분류, 베스트 컷 선별, 본인 사진 전송</td></tr>
 <tr><th scope="row">처리 기술</th><td>Amazon Web Services Rekognition</td></tr>
@@ -229,15 +237,15 @@ d.setAttribute('data-lang',(function(){
 <tbody>
 <tr><td>Amazon Web Services (AWS Korea LLC)</td><td>AI 사진분류 및 전송</td></tr>
 <tr><td>Railsware Products Studio LLC (Mailtrap)</td><td>사진 수령 안내 이메일 발송</td></tr>
+<tr><td>Cloudflare, Inc.</td><td>웹페이지 보안(DDoS 방어 등) 및 안정적이고 빠른 콘텐츠 제공(CDN)</td></tr>
 <tr><td>솔라피 주식회사 (SOLAPI)</td><td>사진 수령 안내 문자(SMS) 발송</td></tr>
 </tbody></table></div>
-<p class="cl">② 회사는 위탁계약 체결 시 개인정보보호법 제26조에 따라 목적 외 처리 금지, 안전성 확보 조치, 재위탁 제한, 수탁자에 대한 관리·감독 및 손해배상 등에 관한 사항을 문서에 명시하고, 수탁사가 이를 준수하는지 감독합니다.</p>
-<p class="cl">③ 회사가 행사 주최사로부터 위탁받은 업무를 제1항의 수탁사에 재위탁하는 경우, 개인정보보호법 제26조 제6항에 따라 주최사의 사전 동의를 받습니다.</p>
-<p class="cl">④ 위탁 업무의 내용이나 수탁사가 변경될 경우, 회사는 본 처리방침을 통하여 지체 없이 공개합니다.</p>
+<p class="cl">② 회사가 행사 주최사로부터 위탁받은 업무를 제1항의 수탁사에 재위탁하는 경우, 개인정보보호법 제26조 제6항에 따라 주최사의 사전 동의를 받습니다.</p>
+<p class="cl">③ 위탁 업무의 내용이나 수탁사가 변경될 경우, 회사는 본 처리방침을 통하여 지체 없이 공개합니다.</p>
 </section>
 <section id="art8">
 <h2>제8조 (개인정보의 국외 이전)</h2>
-<p class="cl">① 회사는 참가자에 대한 사진 수령 안내를 발송하기 위하여 아래와 같이 개인정보를 국외로 이전하고 있습니다. 본 이전은 개인정보보호법 제28조의8 제1항 제3호에 따라 계약의 이행 및 정보주체 편의 증진을 위하여 필요한 처리위탁에 해당하며, 같은 조 제2항 각 호의 사항을 다음과 같이 공개합니다.</p>
+<p class="cl">① 회사는 서비스 제공을 위하여 아래와 같이 개인정보를 국외로 이전하고 있습니다. 본 이전은 개인정보보호법 제28조의8 제1항 제3호에 따라 계약의 이행 및 정보주체 편의 증진을 위하여 필요한 처리위탁에 해당하며, 같은 조 제2항 각 호의 사항을 다음과 같이 공개합니다.</p>
 <div class="tw"><table class="kv">
 <tbody>
 <tr><th scope="row">이전받는 자</th><td>Railsware Products Studio LLC (서비스명: Mailtrap)  |  연락처: <a href="mailto:support@mailtrap.io">support@mailtrap.io</a></td></tr>
@@ -248,7 +256,17 @@ d.setAttribute('data-lang',(function(){
 <tr><th scope="row">이전받는 자의 보유·이용 기간</th><td>발송 처리 완료 시까지. 다만 발송 이력은 해당 서비스 제공자의 정책에 따라 일정 기간 보관될 수 있습니다.</td></tr>
 <tr><th scope="row">이전 거부 방법</th><td>정보주체는 <a href="mailto:pixelair.co@gmail.com">pixelair.co@gmail.com</a>으로 국외 이전 거부 의사를 통지하실 수 있으며, 회사는 통지를 받은 즉시 해당 정보주체의 이메일 주소를 국외 이전 대상에서 제외합니다.</td></tr>
 </tbody></table></div>
-<p class="cl">② 제1항에 따라 국외 이전을 거부하시는 경우 이메일을 통한 사진 수령은 불가능합니다. 다만 문자(SMS) 등 국내에서만 처리되는 다른 수신 수단을 선택하실 수 있으며, 이 경우에도 사진 수령 서비스는 정상적으로 이용하실 수 있습니다.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">이전받는 자</th><td>Cloudflare, Inc. (연락처: <a href="mailto:privacy@cloudflare.com">privacy@cloudflare.com</a>)</td></tr>
+<tr><th scope="row">이전되는 국가</th><td>미국</td></tr>
+<tr><th scope="row">이전 시기 및 방법</th><td>참가자가 Pixel Air 웹페이지에 접속하는 시점에 정보통신망을 통하여 자동 전송</td></tr>
+<tr><th scope="row">이전되는 항목</th><td>IP 주소, 브라우저 정보 등 웹페이지 접속 기록</td></tr>
+<tr><th scope="row">이전받는 자의 이용 목적</th><td>웹페이지 보안(DDoS 방어 등) 및 안정적이고 빠른 콘텐츠 제공(CDN)</td></tr>
+<tr><th scope="row">이전받는 자의 보유·이용 기간</th><td>목적 달성 후 지체 없이 파기 (단, 서비스 제공자의 보안 로그 정책에 따라 일정 기간 보관될 수 있음)</td></tr>
+<tr><th scope="row">이전 거부 방법</th><td>본 국외 이전은 웹 서비스의 보안 및 구동을 위한 필수적인 처리 과정이므로, 이전을 원하지 않으실 경우 웹페이지 접속을 종료(서비스 이용 거부)하셔야 합니다.</td></tr>
+</tbody></table></div>
+<p class="cl">② 제1항의 Mailtrap에 대한 국외 이전을 거부하시는 경우 이메일을 통한 사진 수령은 불가능합니다. 다만 문자(SMS) 등 국내에서만 처리되는 다른 수신 수단을 선택하실 수 있으며, 이 경우에도 사진 수령 서비스는 정상적으로 이용하실 수 있습니다.</p>
 <p class="cl">③ 문자(SMS) 발송을 위한 개인정보는 국내 사업자인 솔라피 주식회사를 통하여 국내에서만 처리되며, 국외로 이전되지 않습니다.</p>
 <p class="cl">④ 안면 특징값 및 사진 파일은 AWS 서울 리전(ap-northeast-2)에서만 처리·보관되며 국외로 이전되지 않습니다.</p>
 </section>
@@ -257,8 +275,8 @@ d.setAttribute('data-lang',(function(){
 <p class="cl">① 회사는 정보주체의 개인정보를 제3자에게 제공하지 않습니다. 다만 다음 각 호 및 제2항의 경우는 예외로 합니다.</p>
 <p class="item">1. 정보주체가 사전에 별도로 동의한 경우</p>
 <p class="item">2. 법령에 특별한 규정이 있거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</p>
-<p class="cl">② 행사 사진의 특성상 여러 참가자가 함께 촬영되는 경우가 대부분입니다. 이에 따라 각 참가자에게 본인이 포함된 사진을 전송하는 과정에서, 해당 사진에 함께 촬영된 다른 참가자의 얼굴 이미지가 포함될 수 있습니다. 회사는 본인 외의 참가자가 식별 가능한 형태로 포함된 사진의 전송을 최소화하기 위한 촬영 단계의 조치를 취하고 있습니다.</p>
-<p class="cl">③ 제2항에 따른 제공에 있어 제공받는 자는 해당 사진에 함께 촬영된 다른 참가자이고, 제공되는 항목은 사진에 포함된 얼굴 이미지이며, 제공 목적은 서비스를 이용하고자 하는 참가자의 사진 전송입니다. 참가자의 단말기로 전송이 완료된 이후에는 해당 수신 참가자가 사진을 보유하며, 회사는 이에 관여하지 않습니다.</p>
+<p class="cl">② 행사 사진에는 여러 참가자가 함께 담기는 경우가 많습니다. 이에 따라 참가자 본인이 포함된 사진을 전송해 드리는 과정에서, 같은 사진에 다른 참가자의 모습이 함께 담길 수 있습니다. 회사는 이러한 제공에 대하여 제1항 제1호에 따른 정보주체의 사전 동의를 받으며, 해당 사진이 전달되는 경우를 줄이기 위하여 촬영 단계에서 필요한 조치를 하고 있습니다.</p>
+<p class="cl">③ 이 경우 사진을 제공받는 자는 해당 사진에 함께 촬영된 다른 참가자이고, 제공되는 항목은 행사 현장에서 촬영된 사진 파일 및 그에 포함된 본인의 초상(얼굴 이미지 등 식별 가능한 시각적 정보)이며, 제공 목적은 서비스를 이용하고자 하는 참가자의 사진 전송입니다. 전송이 완료된 뒤에는 사진이 받으신 분의 기기에 저장되므로, 회사가 이를 회수하거나 관리할 수 없습니다.</p>
 <p class="cl">④ 촬영 자체를 원하지 않는 참가자 또는 본인이 포함된 사진의 전송 제외를 원하는 참가자는 행사 주최사 또는 회사에 요청하실 수 있으며, 회사는 요청을 받은 즉시 해당 사진을 전송 대상에서 제외합니다.</p>
 <p class="cl">⑤ 회사가 수탁사로서 처리하는 행사 참가자 정보는 제1항부터 제4항까지에 정한 경우 이외에 제3자에게 제공하지 않으며, 이를 판매하거나 광고 목적으로 이용하지 않습니다.</p>
 </section>
@@ -285,9 +303,10 @@ d.setAttribute('data-lang',(function(){
 </section>
 <section id="art11">
 <h2>제11조 (만 14세 미만 아동의 개인정보 처리)</h2>
-<p class="cl">① 회사는 만 14세 미만 아동의 개인정보를 처리하는 경우, 개인정보보호법 제22조의2에 따라 법정대리인의 동의를 받습니다.</p>
-<p class="cl">② 법정대리인의 동의가 확인되지 않은 경우 해당 아동에 대해서는 서비스를 제공하지 않으며, 이미 수집된 정보가 있는 경우 지체 없이 파기합니다.</p>
-<p class="cl">③ 만 14세 미만 아동의 참가가 예상되는 행사의 경우, 회사는 행사 주최사와 사전에 법정대리인 동의 절차를 협의합니다.</p>
+<p class="cl">① 회사는 만 14세 미만 아동의 개인정보를 법정대리인의 동의 없이 처리하지 않습니다.</p>
+<p class="cl">② 회사는 동의 절차에서 참가자가 만 14세 이상인지 또는 법정대리인의 동의를 받았는지를 확인하며, 개인정보처리자인 행사 주최사는 참가 등록 단계에서 참가자의 연령을 확인합니다.</p>
+<p class="cl">③ 법정대리인의 동의가 확인되지 않은 경우 해당 아동에 대해서는 서비스를 제공하지 않으며, 이미 수집된 정보가 있는 경우 지체 없이 파기합니다.</p>
+<p class="cl">④ 만 14세 미만 아동의 참가가 예상되는 행사의 경우, 회사는 행사 주최사와 사전에 법정대리인 동의 절차를 협의합니다.</p>
 </section>
 <section id="art12">
 <h2>제12조 (개인정보의 안전성 확보 조치)</h2>
@@ -303,8 +322,10 @@ d.setAttribute('data-lang',(function(){
 <section id="art13">
 <h2>제13조 (자동 수집 장치의 설치·운영)</h2>
 <p class="cl">① 본 조는 회사가 운영하는 참가자용 웹 페이지(QR 동의·등록 페이지, 사진 수령 갤러리 페이지)에 적용됩니다.</p>
-<p class="cl">② 회사는 참가자용 웹 페이지에서 쿠키(cookie)를 비롯한 개인정보 자동 수집 장치를 설치·운영하지 않습니다.</p>
-<p class="cl">③ 향후 자동 수집 장치를 도입하는 경우, 회사는 그 목적·수집 항목 및 거부 방법을 본 처리방침에 반영하여 사전에 공개합니다.</p>
+<p class="cl">② 회사는 참가자용 웹 페이지에서 이용자의 행태정보를 수집·분석하기 위한 쿠키(cookie) 등 개인정보 자동 수집 장치를 설치·운영하지 않습니다. 다만 웹 페이지 접속 시 통신 과정에서 자동으로 전달되는 IP 주소 및 브라우저 정보는 본 조의 자동 수집 장치에 의한 수집에 해당하지 아니하며, 그 처리에 관한 사항은 제2조 및 제8조에 따릅니다.</p>
+<p class="cl">③ 다만 참가자가 화면 상단에서 표시 언어를 직접 선택한 경우에 한하여, 해당 설정값을 참가자의 브라우저 저장소(local storage)에 저장합니다. 이 값은 언어 코드(예: ko, en)만을 담고 있어 개인을 식별할 수 없으며, 회사의 서버로 전송되지 않습니다.</p>
+<p class="cl">④ 제3항의 저장을 원하지 않는 참가자는 브라우저 설정에서 사이트 데이터를 삭제하거나 저장을 차단할 수 있습니다. 이 경우 페이지를 이동할 때마다 언어를 다시 선택하셔야 합니다.</p>
+<p class="cl">⑤ 향후 자동 수집 장치를 도입하는 경우, 회사는 그 목적·수집 항목 및 거부 방법을 본 처리방침에 반영하여 사전에 공개합니다.</p>
 </section>
 <section id="art14">
 <h2>제14조 (사업자 정보 및 개인정보 보호책임자)</h2>
@@ -346,7 +367,7 @@ d.setAttribute('data-lang',(function(){
 <div class="tw"><table class="data">
 <thead><tr><th>버전</th><th>공고일</th><th>시행일</th><th>비고</th></tr></thead>
 <tbody>
-<tr><td>v1.0</td><td>2026년 8월 14일</td><td>2026년 8월 14일</td><td>제정 (최초 수립·공개)</td></tr>
+<tr><td>v1.0</td><td>2026년 8월 19일</td><td>2026년 8월 19일</td><td>제정 (최초 수립·공개)</td></tr>
 </tbody></table></div>
 </section>
 <div class="box closing"><p>본 처리방침은 개인정보보호법 제30조에 따라 수립·공개되었으며, 회사의 개인정보동의서 및 개인정보 처리 위탁계약서와 함께 적용됩니다.</p></div>
@@ -358,7 +379,7 @@ d.setAttribute('data-lang',(function(){
 <hr class="sep">
 
 <div id="doc-en" class="lang">
-<header class="cover"><h1>Privacy Policy</h1><p class="meta">[ KKOMSIL PHOTO ]  |  Service name: Pixel Air</p><p class="meta">Published: 14 August 2026  |  Effective: 14 August 2026  |  Version: v1.0</p></header>
+<header class="cover"><h1>Privacy Policy</h1><p class="meta">[ KKOMSIL PHOTO ]  |  Service name: Pixel Air</p><p class="meta">Published: 19 August 2026  |  Effective: 19 August 2026  |  Version: v1.0</p></header>
 <main>
 <div class="box intro"><p>[ KKOMSIL PHOTO ] (the "Company") establishes and discloses this Privacy Policy in accordance with Article 30 of the Personal Information Protection Act ("PIPA") of the Republic of Korea, in order to protect the personal information of data subjects and to handle related grievances promptly and effectively.</p><p>This English text is a reference translation provided for the convenience of readers. The Korean version is the official text; in the event of any discrepancy, the Korean version prevails.</p></div>
 <nav class="toc" aria-label="Contents">
@@ -370,7 +391,7 @@ d.setAttribute('data-lang',(function(){
 <p class="cl">① The Company provides a service under the name "Pixel Air" that uses AI facial recognition technology to automatically sort photographs taken at an event venue and deliver them to individual participants (the "Service"). "Pixel Air" is the name of the service provided by the Company; the holder of the rights and obligations under this Privacy Policy is the Company.</p>
 <p class="cl">② The Company processes the personal information it handles in the course of operating the Service lawfully and in accordance with applicable laws and this Privacy Policy, and protects the personal information and interests of data subjects.</p>
 <p class="cl">③ The Company acts as a processor entrusted by the event host with personal information processing duties. The personal information controller in respect of the Service is the host of each event.</p>
-<p class="cl">④ This Privacy Policy is established and disclosed pursuant to Article 30 of PIPA, as applied mutatis mutandis to entrusted processors under Article 26(8) of the same Act, so that data subjects may directly review the personal information processing actually carried out by the Company as a processor. The primary party responsible for notice, consent and the exercise of rights vis-à-vis data subjects is the host of each event, and the applicable standards are set out in that host's privacy policy and in the data processing agreement.</p>
+<p class="cl">④ This Privacy Policy is established and disclosed pursuant to Article 30 of PIPA, as applied mutatis mutandis to entrusted processors under Article 26(8) of the same Act, so that data subjects may directly review the personal information processing actually carried out by the Company as a processor. The primary party responsible for notice, consent and the exercise of rights vis-à-vis data subjects is the host of each event, and the applicable standards are set out in that host's privacy policy and in the data processing agreement. Where the data processing agreement so provides, the Company may obtain consent from data subjects on behalf of the host.</p>
 <p class="cl">⑤ This Privacy Policy applies to personal information processing carried out on the participant-facing web pages operated by the Company (the QR consent and registration page and the photo retrieval gallery page) and in the related processing systems.</p>
 </section>
 <section id="en-art2">
@@ -379,12 +400,13 @@ d.setAttribute('data-lang',(function(){
 <div class="tw"><table class="kv">
 <tbody>
 <tr><th scope="row">General personal information</th><td>Among the participant's name, email address and mobile telephone number, the items corresponding to the delivery method selected by the participant</td></tr>
-<tr><th scope="row">Sensitive information</th><td>The facial photograph registered by the participant for the purpose of sorting and delivering photographs (the "Registered Photograph") and the facial feature vector extracted from that Registered Photograph</td></tr>
+<tr><th scope="row">Sensitive information</th><td>The facial photograph registered by the participant for the purpose of sorting and delivering photographs (the "Registered Photograph") and the facial feature vector generated from that Registered Photograph</td></tr>
 <tr><th scope="row">Photograph files</th><td>Among the photographs taken at the event venue, the files uploaded to the Company's system for matching and delivery to participants (including facial images)</td></tr>
-<tr><th scope="row">Access logs</th><td>IP address, access date and time, and browser information generated automatically when the participant-facing web pages are used. Access logs recorded at the time of consent are retained as part of the electronic consent record for the purpose of evidencing that consent.</td></tr>
+<tr><th scope="row">Access record</th><td>IP address and access time generated automatically at the time of consent. Retained as part of the electronic consent record in order to evidence that consent.</td></tr>
+<tr><th scope="row">Web access information</th><td>IP address and browser information transmitted automatically in the course of communication when the participant-facing web pages are accessed. Processed through the sub-processor referred to in Article 7 for the security and delivery of the web pages; the Company does not separately store it.</td></tr>
 <tr><th scope="row">Purposes of processing</th><td>Automatic per-person photograph sorting based on AI facial recognition; best-shot selection (filtering of closed eyes, motion blur and overexposure); delivery of the participant's own photographs; recording and evidencing of consent; and responding to enquiries relating to use of the Service</td></tr>
 <tr><th scope="row">Nature of processing</th><td>Entrusted processing under Article 26 of PIPA. The personal information controller is the host of each event.</td></tr>
-<tr><th scope="row">Legal basis</th><td>PIPA Article 15(1)1, Article 23(1)1 (separate consent of the data subject), and Article 26</td></tr>
+<tr><th scope="row">Legal basis</th><td>PIPA Article 15(1)1, Article 17(1)1, Article 23(1)1 (separate consent of the data subject), and Article 26</td></tr>
 </tbody></table></div>
 </section>
 <section id="en-art3">
@@ -398,7 +420,6 @@ d.setAttribute('data-lang',(function(){
 <tr><td>Facial feature vector (sensitive information)</td><td>Destroyed immediately upon completion of photograph delivery as a matter of principle. It may, however, be retained for up to 30 days from the end date of the event in order to complete the Service, including handling of re-delivery and non-delivery requests, and is destroyed immediately upon expiry of that period.</td><td>PIPA Articles 21 and 23</td></tr>
 <tr><td>Event photographs (files uploaded to the system)</td><td>30 days from the end date of the event</td><td>The period necessary to complete the Service, including handling of re-delivery requests for undelivered photographs (data processing agreement)</td></tr>
 <tr><td>Electronic consent records (timestamp, IP address, consent items)</td><td>5 years from the date of consent</td><td>The five-year commercial limitation period under Article 64 of the Commercial Act, and evidencing of consent</td></tr>
-<tr><td>Participant page access logs</td><td>30 days from the end date of the event</td><td>The Company's own retention standard for service operation and security purposes</td></tr>
 </tbody></table></div>
 <p class="cl">② Where a data subject requests deletion of personal information or withdraws consent, the Company destroys the relevant information without delay, regardless of the periods set out in paragraph ①.</p>
 </section>
@@ -423,8 +444,8 @@ d.setAttribute('data-lang',(function(){
 <p class="cl">① The Company's facial recognition processing operates as follows.</p>
 <div class="tw"><table class="kv">
 <tbody>
-<tr><th scope="row">Source of feature extraction</th><td>The facial photograph registered by the participant for photograph sorting and delivery (the Registered Photograph)</td></tr>
-<tr><th scope="row">Search method</th><td>The facial feature vector extracted from the Registered Photograph is used to locate, among the photographs taken at the event venue, those in which that participant appears.</td></tr>
+<tr><th scope="row">Source of feature generation</th><td>The facial photograph registered by the participant for photograph sorting and delivery (the Registered Photograph)</td></tr>
+<tr><th scope="row">Search method</th><td>The facial feature vector generated from the Registered Photograph is used to locate, among the photographs taken at the event venue, those in which that participant appears.</td></tr>
 <tr><th scope="row">Scope of stored feature vectors</th><td>Stored facial feature vectors are limited to those of participants who have consented to use of the Service and registered a facial photograph. Comparison values derived from faces appearing in event photographs are generated transiently during the search process, are not stored, and cease to exist immediately upon completion of the search.</td></tr>
 <tr><th scope="row">Purposes of processing</th><td>Automatic per-person photograph sorting, best-shot selection, and delivery of the participant's own photographs</td></tr>
 <tr><th scope="row">Processing technology</th><td>Amazon Web Services Rekognition</td></tr>
@@ -456,15 +477,15 @@ d.setAttribute('data-lang',(function(){
 <tbody>
 <tr><td>Amazon Web Services (AWS Korea LLC)</td><td>AI photograph sorting and delivery</td></tr>
 <tr><td>Railsware Products Studio LLC (Mailtrap)</td><td>Sending of photograph retrieval notification emails</td></tr>
+<tr><td>Cloudflare, Inc.</td><td>Web page security (DDoS protection, etc.) and stable, fast content delivery (CDN)</td></tr>
 <tr><td>SOLAPI Co., Ltd.</td><td>Sending of photograph retrieval notification SMS messages</td></tr>
 </tbody></table></div>
-<p class="cl">② When concluding an entrustment agreement, the Company specifies in writing, in accordance with Article 26 of PIPA, matters including the prohibition of processing beyond the stated purpose, safety measures, restrictions on sub-entrustment, supervision of the entrusted party and liability for damages, and supervises the sub-processor's compliance.</p>
-<p class="cl">③ Where the Company sub-entrusts to a sub-processor listed in paragraph ① duties entrusted to it by an event host, it obtains the host's prior consent in accordance with Article 26(6) of PIPA.</p>
-<p class="cl">④ Where the content of the entrusted duties or the identity of a sub-processor changes, the Company discloses the change without delay through this Privacy Policy.</p>
+<p class="cl">② Where the Company sub-entrusts to a sub-processor listed in paragraph ① duties entrusted to it by an event host, it obtains the host's prior consent in accordance with Article 26(6) of PIPA.</p>
+<p class="cl">③ Where the content of the entrusted duties or the identity of a sub-processor changes, the Company discloses the change without delay through this Privacy Policy.</p>
 </section>
 <section id="en-art8">
 <h2>Article 8 (Cross-Border Transfer of Personal Information)</h2>
-<p class="cl">① In order to send photograph retrieval notifications to participants, the Company transfers personal information abroad as set out below. This transfer constitutes entrusted processing necessary for the performance of a contract and for the convenience of the data subject under Article 28-8(1)3 of PIPA, and the matters listed in Article 28-8(2) of the same Act are disclosed as follows.</p>
+<p class="cl">① The Company transfers personal information abroad as set out below in order to provide the Service. This transfer constitutes entrusted processing necessary for the performance of a contract and for the convenience of the data subject under Article 28-8(1)3 of PIPA, and the matters listed in Article 28-8(2) of the same Act are disclosed as follows.</p>
 <div class="tw"><table class="kv">
 <tbody>
 <tr><th scope="row">Transferee</th><td>Railsware Products Studio LLC (service name: Mailtrap)  |  Contact: <a href="mailto:support@mailtrap.io">support@mailtrap.io</a></td></tr>
@@ -475,7 +496,17 @@ d.setAttribute('data-lang',(function(){
 <tr><th scope="row">Transferee's retention and use period</th><td>Until completion of the sending process. Sending logs may, however, be retained for a certain period in accordance with the service provider's policy.</td></tr>
 <tr><th scope="row">Method of refusing transfer</th><td>A data subject may notify the Company of a refusal of cross-border transfer at <a href="mailto:pixelair.co@gmail.com">pixelair.co@gmail.com</a>. Upon receipt of such notice, the Company immediately excludes that data subject's email address from cross-border transfer.</td></tr>
 </tbody></table></div>
-<p class="cl">② Where a data subject refuses cross-border transfer under paragraph ①, photograph retrieval by email is not possible. The data subject may, however, select another delivery method processed solely within the Republic of Korea, such as SMS, and may in that case continue to use the photograph delivery service without restriction.</p>
+<div class="tw"><table class="kv">
+<tbody>
+<tr><th scope="row">Transferee</th><td>Cloudflare, Inc.  |  Contact: <a href="mailto:privacy@cloudflare.com">privacy@cloudflare.com</a></td></tr>
+<tr><th scope="row">Country of transfer</th><td>United States of America</td></tr>
+<tr><th scope="row">Timing and method of transfer</th><td>Transmitted automatically over the information and communications network at the time a participant accesses a Pixel Air web page</td></tr>
+<tr><th scope="row">Items transferred</th><td>IP address, browser information and other web page access records</td></tr>
+<tr><th scope="row">Transferee's purpose of use</th><td>Web page security (DDoS protection, etc.) and stable, fast content delivery (CDN)</td></tr>
+<tr><th scope="row">Transferee's retention and use period</th><td>Destroyed without delay once the purpose is achieved. Security logs may, however, be retained for a certain period in accordance with the service provider's policy.</td></tr>
+<tr><th scope="row">Method of refusing transfer</th><td>This cross-border transfer is an essential part of the security and operation of the web service. A data subject who does not wish the transfer to occur must therefore close the web page (decline to use the Service).</td></tr>
+</tbody></table></div>
+<p class="cl">② Where a data subject refuses cross-border transfer to Mailtrap under paragraph ①, photograph retrieval by email is not possible. The data subject may, however, select another delivery method processed solely within the Republic of Korea, such as SMS, and may in that case continue to use the photograph delivery service without restriction.</p>
 <p class="cl">③ Personal information used for SMS delivery is processed solely within the Republic of Korea through SOLAPI Co., Ltd., a domestic provider, and is not transferred abroad.</p>
 <p class="cl">④ Facial feature vectors and photograph files are processed and stored solely in the AWS Seoul Region (ap-northeast-2) and are not transferred abroad.</p>
 </section>
@@ -484,8 +515,8 @@ d.setAttribute('data-lang',(function(){
 <p class="cl">① The Company does not provide the personal information of data subjects to third parties, except in the cases set out in the following subparagraphs and in paragraph ②.</p>
 <p class="item">1. Where the data subject has given separate prior consent</p>
 <p class="item">2. Where there is a special provision in a statute, or where an investigative authority makes a request for investigative purposes in accordance with the procedures and methods prescribed by statute</p>
-<p class="cl">② Owing to the nature of event photography, most photographs include several participants together. Accordingly, when a photograph in which a participant appears is delivered to that participant, the facial images of other participants photographed alongside them may be included. The Company takes measures at the photography stage to minimise the delivery of photographs in which persons other than the recipient are included in an identifiable form.</p>
-<p class="cl">③ In relation to the provision described in paragraph ②, the recipients are the other participants photographed in the same photograph, the item provided is the facial image contained in the photograph, and the purpose of provision is delivery of photographs to participants wishing to use the Service. Once delivery to a participant's device is complete, the receiving participant holds the photograph and the Company has no further involvement.</p>
+<p class="cl">② Event photographs frequently include several participants together. Accordingly, when a photograph in which a participant appears is delivered to that participant, the likeness of other participants captured in the same photograph may also be included. The Company obtains the data subject's prior consent for such provision under paragraph ①.1, and takes measures at the photography stage to reduce the delivery of photographs in which other participants are included in an identifiable form.</p>
+<p class="cl">③ In this case, the recipients are the other participants photographed in the same photograph; the items provided are the photograph file taken at the event venue and the data subject's likeness contained in it (facial image and other visually identifiable information); and the purpose of provision is delivery of photographs to participants wishing to use the Service. Once delivery is complete the photograph is stored on the recipient's own device, and the Company cannot recover or manage it.</p>
 <p class="cl">④ A participant who does not wish to be photographed at all, or who wishes to be excluded from delivery of photographs in which they appear, may make a request to the event host or to the Company. Upon receipt of such a request, the Company immediately excludes the relevant photographs from delivery.</p>
 <p class="cl">⑤ Except in the cases set out in paragraphs ① through ④, the Company does not provide participant information that it processes as an entrusted processor to any third party, and does not sell it or use it for advertising purposes.</p>
 </section>
@@ -512,9 +543,10 @@ d.setAttribute('data-lang',(function(){
 </section>
 <section id="en-art11">
 <h2>Article 11 (Processing of Personal Information of Children Under 14)</h2>
-<p class="cl">① Where the Company processes the personal information of a child under 14 years of age, it obtains the consent of the child's legal representative in accordance with Article 22-2 of PIPA.</p>
-<p class="cl">② Where the consent of a legal representative is not confirmed, the Company does not provide the Service to the child concerned and destroys without delay any information already collected.</p>
-<p class="cl">③ For events at which the participation of children under 14 is anticipated, the Company agrees the legal representative consent procedure with the event host in advance.</p>
+<p class="cl">① The Company does not process the personal information of children under 14 years of age without the consent of their legal representative.</p>
+<p class="cl">② The Company confirms during the consent process whether the participant is 14 years of age or older, or has obtained the consent of a legal representative; the event host, as the personal information controller, verifies the participant's age at the registration stage.</p>
+<p class="cl">③ Where the consent of a legal representative is not confirmed, the Company does not provide the Service to the child concerned and destroys without delay any information already collected.</p>
+<p class="cl">④ For events at which the participation of children under 14 is anticipated, the Company agrees the legal representative consent procedure with the event host in advance.</p>
 </section>
 <section id="en-art12">
 <h2>Article 12 (Measures to Ensure the Security of Personal Information)</h2>
@@ -530,8 +562,10 @@ d.setAttribute('data-lang',(function(){
 <section id="en-art13">
 <h2>Article 13 (Installation and Operation of Automatic Collection Devices)</h2>
 <p class="cl">① This Article applies to the participant-facing web pages operated by the Company (the QR consent and registration page and the photo retrieval gallery page).</p>
-<p class="cl">② The Company does not install or operate cookies or any other device that automatically collects personal information on its participant-facing web pages.</p>
-<p class="cl">③ Should the Company introduce such a device in future, it will disclose the purpose, the items collected and the means of refusal in advance by reflecting them in this Privacy Policy.</p>
+<p class="cl">② The Company does not install or operate cookies or other devices that automatically collect personal information for the purpose of collecting or analysing users' behavioural information on its participant-facing web pages. The IP address and browser information transmitted automatically in the course of communication when a web page is accessed do not constitute collection by an automatic collection device under this Article; their processing is governed by Articles 2 and 8.</p>
+<p class="cl">③ Where a participant has expressly selected a display language at the top of the screen, however, the Company stores that setting in the participant's browser local storage. The value contains only a language code (e.g. ko, en), cannot identify an individual, and is not transmitted to the Company's servers.</p>
+<p class="cl">④ A participant who does not wish the storage described in paragraph ③ to occur may delete site data or block storage in the browser settings. In that case the language must be selected again on each page.</p>
+<p class="cl">⑤ Should the Company introduce an automatic collection device in future, it will disclose the purpose, the items collected and the means of refusal in advance by reflecting them in this Privacy Policy.</p>
 </section>
 <section id="en-art14">
 <h2>Article 14 (Business Information and Personal Information Protection Officer)</h2>
@@ -573,7 +607,7 @@ d.setAttribute('data-lang',(function(){
 <div class="tw"><table class="data">
 <thead><tr><th>Version</th><th>Published</th><th>Effective</th><th>Notes</th></tr></thead>
 <tbody>
-<tr><td>v1.0</td><td>14 August 2026</td><td>14 August 2026</td><td>Initial establishment and disclosure</td></tr>
+<tr><td>v1.0</td><td>19 August 2026</td><td>19 August 2026</td><td>Initial establishment and disclosure</td></tr>
 </tbody></table></div>
 </section>
 <div class="box closing"><p>This Privacy Policy is established and disclosed pursuant to Article 30 of the Personal Information Protection Act and applies together with the Company's personal information consent form and data processing agreement.</p><p>This English text is a reference translation. The Korean version is the official text and prevails in the event of any discrepancy.</p></div>
